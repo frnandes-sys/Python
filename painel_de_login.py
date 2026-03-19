@@ -28,7 +28,6 @@ def log ():
         print("O CPF deve conter 11 números")
         cpf = input("Digite seu CPF: ").strip()
 
-
     while cpf not in loggin:
         print("CPF não cadastrado")
         cpf = input("Digite seu CPF: ").strip()
@@ -37,12 +36,14 @@ def log ():
 
     senha = input("Digite a senha: ").strip()
 
+    while senha not in password:
+        print("Senha incorreta! Tente novamente.")
+        senha = input("Digite a senha: ").strip()
+
     if senha == password[index]:
 
         print("\n" * 100)
         banco()
-    else:
-        print("Senha incorreta.")
 
 def register():
     nome = input("Digite seu nome: ")
