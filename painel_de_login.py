@@ -32,6 +32,7 @@ def log ():
         print("CPF não cadastrado")
         cpf = input("Digite seu CPF: ").strip()
 
+
     index = loggin.index(cpf)
 
     senha = input("Digite a senha: ").strip()
