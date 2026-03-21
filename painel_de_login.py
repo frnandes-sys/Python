@@ -93,15 +93,15 @@ def register():
 
     senha = input("\nDigite a senha: ").strip()
 
-    while len(senha) !=5:
+    while len(senha) <5:
         print("\n❌ | A senha deve conter mais de 5 dígitos!")
         senha = input("\nDigite a senha: ").strip()
 
-    senha2 = input("\nConfirme sua senha: ")
+    senha2 = input("\nConfirme sua senha: ").strip
 
     while senha != senha2:
         print("\n❌ | A senha não confere! Tente novamente")
-        senha2 = input("Confirme sua senha: ")
+        senha2 = input("Confirme sua senha: ").strip
 
     users.append(nome)
     loggin.append(cpf)
