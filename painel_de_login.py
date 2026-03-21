@@ -4,22 +4,25 @@ users = []
 moneys = []
 
 def inicio():
-    print("=== Central Bank ===")
+    print("\n=== Central Bank ===")
     print("\n1 - Entrar na conta")
     print("2 - Registrar")
     print("3 - Sair")
     resposta = input("\nEscolha uma opção: ")
 
     if resposta == "1":
+        print("\n" * 100)
         log()
     elif resposta == "2":
+        print("\n" * 100)
         register()
     elif resposta == "3":
+        print("\n" * 100)
         print("Até a próxima!")
         print("Finalizando...")
 
 def depositar():
-    print("=== Depósito ===")
+    print("\n=== Depósito ===")
     valor = float(input("\nDigite o valor a ser depositado: "))
     while valor <= 0:
         print("\n❌ | O valor deve ser maior que 0")
@@ -47,11 +50,12 @@ def banco():
     elif bank == "3":
         sacar()
     elif bank == "4":
-        print("Até a próxima!")
+        print("Saindo…!")
         exit()
 
 def log ():
-    print("=== Login ===")
+    print("\n=== Login ===")
+    print("\nInsira '0' para voltar")
     cpf = input("\nDigite seu CPF: ").strip()
     if cpf == "0":
         return inicio()
@@ -61,12 +65,12 @@ def log ():
         cpf = input("\nDigite seu CPF: ").strip()
 
     while cpf not in loggin:
-        print("❌ | CPF não cadastrado")
-        cpf = input("Digite seu CPF: ").strip()
+        print("\n❌ | CPF não cadastrado")
+        cpf = input("\nDigite seu CPF: ").strip()
 
     index = loggin.index(cpf)
-
-    senha = input("Digite a senha: ").strip()
+   
+    senha = input("\nDigite a senha: ").strip()
 
     while senha not in password:
         print("\n❌ | Senha incorreta! Tente novamente.")
@@ -74,11 +78,12 @@ def log ():
 
     if senha == password[index]:
 
+        print("✅ | \nConta acessada com sucesso!")
         print("\n" * 100)
         banco()
 
 def register():
-    print("=== Cadastro ===")
+    print("\n=== Cadastro ===")
     nome = input("\nDigite seu nome: ")
     cpf = input("\nDigite seu CPF: ").strip()
 
