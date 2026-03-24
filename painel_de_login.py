@@ -1,5 +1,5 @@
 loggin = ["12312312312"]
-password = ["123451"]
+password = ["12345"]
 users = ["Daniel"]
 moneys = []
 
@@ -140,7 +140,7 @@ def log ():
 
 def register():
     print("\n=== Cadastro ===")
-    nome = input("\nDigite seu nome: ")
+    nome = input("\nDigite seu nome: ").strip()
     cpf = input("\nDigite seu CPF: ").strip()
 
     while len(cpf) !=11:
