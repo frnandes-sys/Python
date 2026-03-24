@@ -89,7 +89,8 @@ def banco():
     for user in users:
         usuario = user
     print(f"\n=== Olá, {usuario} ===")
-    
+
+
     for money in moneys:
         print(f"\nSaldo: R$ {money}")
     print()
