@@ -84,7 +84,6 @@ def transferir():
         else:
             print("\n❌ | Saldo insuficiente")
             banco()
-        #valor = float(input("\nDigite o valor a ser transferido:"))
 
 def banco():
     for user in users:
