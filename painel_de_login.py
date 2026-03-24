@@ -1,6 +1,6 @@
-loggin = ["12312312312"]
-password = ["12345"]
-users = ["Daniel"]
+loggin = []
+password = []
+users = []
 moneys = []
 
 def inicio():
@@ -26,85 +26,62 @@ def inicio():
         print("Até a próxima!")
         print("Finalizando...")
 
-def depositar():
+def depositar(index):
     print("\n=== Depósito ===")
     valor = float(input("\nDigite o valor a ser depositado: "))
+
     while valor <= 0:
         print("\n❌ | O valor deve ser maior que 0")
-    moneys.insert(1, valor)
+        valor = float(input("\nDigite o valor novamente: "))
+
+    moneys[index] += valor
     print(f"\nDepósito de R$ {valor} realizado com sucesso!")
-    banco()
+    banco(index)
 
-def transferir():
+def transferir(index):
     print("\n=== Transferência ===")
-    print("\nInsira '0' para voltar")
-    print("\n1 - CPF")
-    print("\n2 - Número de telefone")
-    print("\n3 - E-mail")
-    print("\n4 - Chave aleatória")
 
-    transfer = input("\nEscolha uma opção: ")
+    entrada = input("\nDigite a chave PIX: ")
 
-    if transfer == "1":
-
-        tcpf = input("\nDigite o CPF do destinatário: ")
-
-        while len(tcpf) !=11:
-            print("\n❌ | O CPF deve conter 11 números")
-            tcpf = input("\nDigite o CPF do destinatário: ")
+    while len(entrada) != 11:
+        print("\n❌ | A chave PIX deve conter 11 números")
+        entrada = int(input("Digite a chave PIX: "))
 
     valor = float(input("\nDigite o valor a ser transferido: "))
-    
+
     while valor <= 0:
         print("\n❌ | O valor deve ser maior que 0")
+        valor = float(input("\nDigite novamente: "))
 
-    if moneys >= valor:
-
+    if valor <= moneys[index]:
+        moneys[index] -= valor
         print(f"\nTransferência de R$ {valor} realizada com sucesso!")
-        moneys.insert(1, (moneys - valor))
-        banco()
     else:
         print("\n❌ | Saldo insuficiente")
-        banco()
 
-    if transfer == "2":
-       num = input("\nDigite o número de telefone do destinatário: ")
-       while len(num) !=11:
-        print("\n❌ | O número de telefone deve conter 11 números")
-        num = float(input("\nDigite o número de telefone do destinatário: "))
-    valor = float(input("\nDigite o valor a ser transferido: "))
-    while valor <= 0:
-        print("\n❌ | O valor deve ser maior que 0")
-        valor = float(input("\nDigite o valor a ser transferido:"))
-        
-        if valor <= money:
-            print(f"\nTransferência de R$ {valor} realizada com sucesso!")
-            moneys.insert(1, (moneys[1] - valor))
-            banco()
-        else:
-            print("\n❌ | Saldo insuficiente")
-            banco()
+    banco(index)
 
-def banco():
-    for user in users:
-        usuario = user
+def banco(index):
+    usuario = users[index]
+    saldo = moneys[index]
+
     print(f"\n=== Olá, {usuario} ===")
 
+    print(f"\nSaldo: R$ {saldo}")
 
-    for money in moneys:
-        print(f"\nSaldo: R$ {money}")
-    print()
-    print("1 - Depositar")
+    print("\n1 - Depositar")
     print("2 - Transferir")
     print("3 - Sacar")
     print("4 - Sair")
+
     bank = input("\nEscolha uma opção: ")
+
     if bank == "1":
-        depositar()
+        depositar(index)
     elif bank == "2":
-        transferir()
+        transferir(index)
     elif bank == "3":
-        sacar()
+        sacar(index)
     elif bank == "4":
         print("Saindo…!")
         exit()
@@ -136,7 +113,7 @@ def log ():
 
         print("✅ | \nConta acessada com sucesso!")
         print("\n" * 100)
-        banco()
+        banco(index)
 
 def register():
     print("\n=== Cadastro ===")
@@ -162,6 +139,7 @@ def register():
     users.append(nome)
     loggin.append(cpf)
     password.append(senha)
+    moneys.append(0)
 
     print("\n✅ | Cadastro realizado com sucesso!")
     print("\n" * 8)
