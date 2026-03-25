@@ -90,6 +90,7 @@ def log ():
     print("\n=== Login ===")
     print("\nInsira '0' para voltar")
     cpf = input("\nDigite seu CPF: ").strip()
+
     if cpf == "0":
         return inicio()
 
@@ -97,7 +98,7 @@ def log ():
         print("\n❌ |O CPF deve conter 11 números")
         cpf = input("\nDigite seu CPF: ").strip()
 
-    while cpf not in loggin:
+    while cpf not in cpf:
         print("\n❌ | CPF não cadastrado")
         cpf = input("\nDigite seu CPF: ").strip()
 

@@ -1,13 +1,10 @@
-print("Bem vindo a lista de compras!")
-print("Digite um item para adicionar na sua lista de compras:")
+import contas
 
-lista_compras = []
-item = input()
+cpf = input("digite: ")
 
-while item != "sair":
-    lista_compras.append(item)
-    item = input()
 
-print("\nAqui está a sua lista de compras:") 
-for i, item in enumerate(lista_compras, start=1):
-    print(f"{i}, {item}")
+
+if cpf != contas.ident:
+    print("tem n man")
+
+print("logado")
