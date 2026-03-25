@@ -5,7 +5,7 @@ moneys = []
 
 def inicio():
     print("\n=== Central Bank ===")
-    print("\n1 - Entrar na conta")
+    print("\n1 - Entrar")
     print("2 - Registrar")
     print("3 - Sair")
 
@@ -136,6 +136,13 @@ def register():
     while senha2 != senha:
         print("\n❌ | A senha não confere! Tente novamente")
         senha2 = input("Confirme sua senha: ")
+
+
+    with open('contas.py', 'a') as arquivo:
+            arquivo.write(f"""\nusers = '{nome}'
+cpf = '{cpf}
+password = '{senha}'
+""")
 
     users.append(nome)
     loggin.append(cpf)
