@@ -62,13 +62,13 @@ def transferir(index):
     banco(index)
 
 def banco(index):
-    #usuario = users[index]
-  #  saldo = moneys[index]
+    from contas import nomeuser, ident, passw, cash
+    #usuario = nomeuser[index]
+   #saldo = cash[index]
 
+    print(f"\n=== Olá, {nomeuser} ===")
 
-    #print(f"\n=== Olá, {usuario} ===")
-
-   # print(f"\nSaldo: R$ {saldo}")
+    print(f"\nSaldo: R$ {cash}")
 
     print("\n1 - Depositar")
     print("2 - Transferir")
@@ -87,6 +87,8 @@ def banco(index):
         print("Saindo…!")
         exit()
 
+# ------------------------------------------- LOGIN
+
 def log():
     print("\n=== Login ===")
     print("\nInsira '0' para voltar")
@@ -94,8 +96,6 @@ def log():
 
     if cpf == "0":
         return inicio()
-
-    #from contas import ident, password
 
     while len(cpf) !=11:
         print("\n❌ |O CPF deve conter 11 números")
@@ -121,6 +121,8 @@ def log():
         print("\n" * 100)
         banco(index)
 
+# ------------------------------------------- REGISTRO
+
 def register():
     print("\n=== Cadastro ===")
     nome = input("\nDigite seu nome: ").strip()
@@ -142,11 +144,13 @@ def register():
         print("\n❌ | A senha não confere! Tente novamente")
         senha2 = input("Confirme sua senha: ")
 
+#
 
     with open('contas.py', 'a') as arquivo:
-            arquivo.write(f"""\nusers = ["{nome}"]
+            arquivo.write(f"""\nnomeuser = ["{nome}"]
 ident = ["{cpf}"]
 passw = ["{senha}"]
+cash = ["0"]
 """)
 
     users.append(nome)
