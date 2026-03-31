@@ -62,12 +62,13 @@ def transferir(index):
     banco(index)
 
 def banco(index):
-    usuario = users[index]
-    saldo = moneys[index]
+    #usuario = users[index]
+  #  saldo = moneys[index]
 
-    print(f"\n=== Olá, {usuario} ===")
 
-    print(f"\nSaldo: R$ {saldo}")
+    #print(f"\n=== Olá, {usuario} ===")
+
+   # print(f"\nSaldo: R$ {saldo}")
 
     print("\n1 - Depositar")
     print("2 - Transferir")
@@ -86,7 +87,7 @@ def banco(index):
         print("Saindo…!")
         exit()
 
-def log ():
+def log():
     print("\n=== Login ===")
     print("\nInsira '0' para voltar")
     cpf = input("\nDigite seu CPF: ").strip()
@@ -94,23 +95,27 @@ def log ():
     if cpf == "0":
         return inicio()
 
+    #from contas import ident, password
+
     while len(cpf) !=11:
         print("\n❌ |O CPF deve conter 11 números")
         cpf = input("\nDigite seu CPF: ").strip()
 
-    while cpf not in cpf:
+    from contas import ident, passw
+
+    while cpf not in ident:
         print("\n❌ | CPF não cadastrado")
         cpf = input("\nDigite seu CPF: ").strip()
 
-    index = loggin.index(cpf)
+    index = ident.index(cpf)
    
     senha = input("\nDigite a senha: ").strip()
 
-    while senha not in password:
+    while senha not in passw:
         print("\n❌ | Senha incorreta! Tente novamente.")
         senha = input("\nDigite a senha: ").strip()
 
-    if senha == password[index]:
+    if senha == passw[index]:
 
         print("✅ | \nConta acessada com sucesso!")
         print("\n" * 100)
@@ -139,9 +144,9 @@ def register():
 
 
     with open('contas.py', 'a') as arquivo:
-            arquivo.write(f"""\nusers = '{nome}'
-cpf = '{cpf}
-password = '{senha}'
+            arquivo.write(f"""\nusers = ["{nome}"]
+ident = ["{cpf}"]
+passw = ["{senha}"]
 """)
 
     users.append(nome)
