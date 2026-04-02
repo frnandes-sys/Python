@@ -1,7 +1,11 @@
-loggin = []
-password = []
-users = []
-moneys = []
+# loggin = []
+# password = []
+# users = []
+# moneys = []
+
+from contas import nomeusers, ident, passw, cash
+
+# ------------------------------------------- INICIO
 
 def inicio():
     print("\n=== Central Bank ===")
@@ -26,19 +30,31 @@ def inicio():
         print("Até a próxima!")
         print("Finalizando...")
 
+# ------------------------------------------- DEPOSITO
+
 def depositar(index):
+
     print("\n=== Depósito ===")
-    valor = float(input("\nDigite o valor a ser depositado: "))
 
-    while valor <= 0:
-        print("\n❌ | O valor deve ser maior que 0")
-        valor = float(input("\nDigite o valor novamente: "))
+    try:
+        valor = float(input("\nDigite o valor a ser depositado: "))
 
-    moneys[index] += valor
-    print(f"\nDepósito de R$ {valor} realizado com sucesso!")
+        while valor <= 0:
+            print("\n❌ | O valor deve ser maior que 0")
+            valor = float(input("\nDigite o valor a ser depositado: "))
+
+    except ValueError:
+        print("\n❌ | Digite apenas números")
+        return depositar(index)
+
+    cash[index] += valor
+    print(f"\n✅ | Depósito de R$ {valor} realizado com sucesso!")
     banco(index)
 
+# ------------------------------------------- TRANSFERENCIA
+
 def transferir(index):
+
     print("\n=== Transferência ===")
 
     entrada = input("\nDigite a chave PIX: ")
@@ -51,24 +67,47 @@ def transferir(index):
 
     while valor <= 0:
         print("\n❌ | O valor deve ser maior que 0")
-        valor = float(input("\nDigite novamente: "))
+        valor = float(input("\nDigite o valor a ser transferido: "))
 
-    if valor <= moneys[index]:
-        moneys[index] -= valor
-        print(f"\nTransferência de R$ {valor} realizada com sucesso!")
+    if valor <= cash[index]:
+        cash[index] -= valor
+        print(f"\n✅ | Transferência de R$ {valor} realizada com sucesso!")
     else:
+        print("\n" * 10)
         print("\n❌ | Saldo insuficiente")
+        return transferir(index)
 
     banco(index)
 
+# ------------------------------------------- SAQUE
+
+def sacar(index):
+
+    print("\n=== Saque ===")
+
+    valor = float(input("\nDigite o valor do saque: "))
+
+    while valor <= 0:
+        print("\n❌ | O valor deve ser maior que 0")
+        valor = float(input("\nDigite o valor do saque: "))
+
+    if valor <= cash[index]:
+        cash[index] -= valor
+        print(f"\n✅ | Saque de R$ {valor} realizado com sucesso!")
+    else:
+        print("\n" * 10)
+        print("\n❌ | Saldo insuficiente")
+        return transferir()
+
+    banco(index)
+
+# ------------------------------------------- BANCO
+
 def banco(index):
-    from contas import nomeuser, ident, passw, cash
-    #usuario = nomeuser[index]
-   #saldo = cash[index]
 
-    print(f"\n=== Olá, {nomeuser} ===")
+    print(f"\n=== Olá, {nomeusers[index]} ===")
 
-    print(f"\nSaldo: R$ {cash}")
+    print(f"\nSaldo: R$ {cash[index]}")
 
     print("\n1 - Depositar")
     print("2 - Transferir")
@@ -100,8 +139,6 @@ def log():
     while len(cpf) !=11:
         print("\n❌ |O CPF deve conter 11 números")
         cpf = input("\nDigite seu CPF: ").strip()
-
-    from contas import ident, passw
 
     while cpf not in ident:
         print("\n❌ | CPF não cadastrado")
@@ -144,22 +181,19 @@ def register():
         print("\n❌ | A senha não confere! Tente novamente")
         senha2 = input("Confirme sua senha: ")
 
-#
-
     with open('contas.py', 'a') as arquivo:
-            arquivo.write(f"""\nnomeuser = ["{nome}"]
+            arquivo.write(f"""\nnomeusers = ["{nome}"]
 ident = ["{cpf}"]
 passw = ["{senha}"]
-cash = ["0"]
+cash = []
 """)
 
-    users.append(nome)
-    loggin.append(cpf)
-    password.append(senha)
-    moneys.append(0)
+    #cash.append(0)
 
     print("\n✅ | Cadastro realizado com sucesso!")
     print("\n" * 8)
     log()
 
-inicio()
+
+if __name__ == "__main__":
+    inicio()
