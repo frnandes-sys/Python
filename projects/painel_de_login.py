@@ -1,8 +1,3 @@
-# loggin = []
-# password = []
-# users = []
-# moneys = []
-
 from contas import nomeusers, ident, passw, cash
 
 # ------------------------------------------- INICIO
