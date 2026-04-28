@@ -1,28 +1,15 @@
-class Car:
-    def __init__(self, marca, model, ano):
-        self.marca = marca
-        self.model = model
-        self.ano = ano
+pessoa1 = {
+    'nome': 'Daniel',
+    'idade': 20,
+}
 
-    def infos(self):
-        return f"Marca: {self.marca}, Modelo: {self.model}, Ano: {self.ano}"
+pessoa2 = {
+    'nome': 'João',
+    'idade': 10,
+    'cidade': "Bahia"
 
-    def ano_antigo(self):
-        return self.ano < 2000
+}
 
-veh1 = Car("Honda", "Civic", "2020")
-
-veh2 = Car("Porshe", "Carrera", "2022")
-
-veh3 = Car("Fiat", "Uno", "1984")
-
-print("=== Concessionaria ===")
-print()
-print(veh1.infos())
-print(veh1.ano_antigo())
-print()
-print(veh2.infos())
-print(veh2.ano_antigo())
-print()
-print(veh3.infos())
-print(veh3.ano_antigo())
+print(pessoa1['nome'])
+print(pessoa2['idade'])
+ print(pessoa1['cidade'])
