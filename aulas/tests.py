@@ -12,4 +12,4 @@ pessoa2 = {
 
 print(pessoa1['nome'])
 print(pessoa2['idade'])
- print(pessoa1['cidade'])
+print(pessoa1['cidade'])

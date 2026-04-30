@@ -158,6 +158,12 @@ def log():
 def register():
     print("\n=== Cadastro ===")
     nome = input("\nDigite seu nome: ").strip()
+
+    while not nome.isalpha():
+        print("\n❌ | Permitido apenas letras, tente novamente!")
+        nome = input("\nDigite seu nome: ").strip()
+
+
     cpf = input("\nDigite seu CPF: ").strip()
 
     while len(cpf) !=11:
