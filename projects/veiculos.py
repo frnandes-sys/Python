@@ -46,3 +46,4 @@ print(veiculo1.veh())
 
 with open(f"veiculos/{marca} {modelo}.txt", 'a', encoding='utf-8') as arquivo:
     arquivo.write(f"=== {marca} {modelo} === \n \nMarca: {marca} \nModelo: {modelo} \nAno: {ano} \nVelocidade: {velocidade}Km \nCombustível: {combustivel}L")
+    arquivo.close()
