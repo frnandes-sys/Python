@@ -1,4 +1,4 @@
-from contas import nomeusers, ident, passw, cash
+from account import nomeusers, ident, passw, cash
 
 # ------------------------------------------- INICIO
 
@@ -182,7 +182,7 @@ def register():
         print("\n❌ | A senha não confere! Tente novamente")
         senha2 = input("Confirme sua senha: ")
 
-    with open('contas.py', 'a') as arquivo:
+    with open('account.py', 'a') as arquivo:
             arquivo.write(f"""\nnomeusers = ["{nome}"]
 ident = ["{cpf}"]
 passw = ["{senha}"]

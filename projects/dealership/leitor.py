@@ -1,8 +1,11 @@
-print("====  CONCESSIONÁRIA  ====")
+def inicio():
+    print("====  CONCESSIONÁRIA  ====")
 
-print("1 - ESPORTIVO")
-print("2 - SUVS")
-print("3 - SEDANS")
+    print("1 - ESPORTIVO")
+    print("2 - SUVS")
+    print("3 - SEDANS")
+
+inicio()
 
 choice = input("\nQual sua escolha: ")
 print("\n" * 100)

@@ -1,5 +1,5 @@
-import painel_de_login
-import contas
+import bank
+import account
 
 
 #print(painel_de_login.inicio())
