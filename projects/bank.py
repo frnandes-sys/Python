@@ -1,4 +1,5 @@
 from account import nomeusers, ident, passw, cash
+import time
 
 # ------------------------------------------- INICIO
 
@@ -119,6 +120,7 @@ def banco(index):
         sacar(index)
     elif bank == "4":
         print("Saindo…!")
+        time.sleep(1.5)
         exit()
 
 # ------------------------------------------- LOGIN
@@ -158,19 +160,23 @@ def log():
 def register():
     print("\n=== Cadastro ===")
     nome = input("\nDigite seu nome: ").strip()
+    time.sleep(1)
 
     while not nome.isalpha():
         print("\n❌ | Permitido apenas letras, tente novamente!")
         nome = input("\nDigite seu nome: ").strip()
+        time.sleep(1)
 
 
     cpf = input("\nDigite seu CPF: ").strip()
+    time.sleep(1)
 
     while len(cpf) !=11:
         print("\n❌ | CPF inválido, tente novamente!")
         cpf = input("\nDigite seu CPF: ").strip()
 
     senha = input("\nDigite a senha: ").strip()
+    time.sleep(1)
 
     while len(senha) < 5:
         print("\n❌ | A senha deve conter mais de 5 dígitos!")
@@ -186,7 +192,7 @@ def register():
             arquivo.write(f"""\nnomeusers = ["{nome}"]
 ident = ["{cpf}"]
 passw = ["{senha}"]
-cash = []
+cash = [0]
 """)
 
     #cash.append(0)
