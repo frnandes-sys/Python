@@ -1,23 +1,5 @@
-# import numpy as np
-#
-#
-# one = int(input("Digite o primeiro numero: "))
-# two = int(input("Digite o segundo numero: "))
-#
-# def somar(a, b):
-#     resultado = a + b
-#     return resultado
-#
-# resultado = somar(one, two)
-#
-# print(resultado)
+from datetime import datetime
 
-import numpy as np
+hora = datetime.now()
 
-
-one = int(input("Digite um numero: "))
-two = int(input("Digite um numero: "))
-
-soma = (np.add(one, two))
-
-print(soma)
+print(f"Horário atual: {hora}")
